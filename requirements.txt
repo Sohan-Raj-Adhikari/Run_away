@@ -1,0 +1,5 @@
+Flask
+Flask_session
+flask-socketio
+flask_login
+werkzeug
