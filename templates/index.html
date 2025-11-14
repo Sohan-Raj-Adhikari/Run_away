@@ -1,14 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
 <!-- log your run -->
-<form action="/" method="post">
-    <input type="number" step="any" name="distance" id="distance" placeholder="Distance" required>km 
-    <label for="duration">Time: </label><input type="number" name="hours" placeholder="Hours" value=0 min="0" >
-    <input type="number" name="minutes" placeholder="Minutes" value=0 min="0" required>
-    <input type="number" name="seconds" placeholder="Seconds" value=0 min="0" required>
-    <input type="text" name="notes" id="notes" placeholder="Notes(optional)">
+ <h1>LOG YOUR RUN</h1>
+<form action="/record" method="post">
+    Distance: <input type="number" step="any" name="distance" id="distance" required>km <br><br>
+    <label for="duration">   Time: </label><input type="number" name="hours" value=0 min="0" max="100"> hours 
+    <input type="number" name="minutes" value=0 min="0" max="60" required> minutes   
+    <input type="number" name="seconds" value=0 min="0" max="60" required> seconds    <br><br>
+    Date: <input type="date" name="date" id="date" required> <br><br>
+    <input type="text" name="notes" id="notes" placeholder="Notes(optional)" autocomplete="off"><br><br>
     <input type="submit" value="Log Your Run">
 </form>
+<br><br><br>
 
 <!-- display previous runs, after scrolling, more runs load -->
 

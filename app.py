@@ -13,6 +13,35 @@ def index():
         return redirect("/login")
     return render_template("index.html")
 
+@app.route("/record", methods=["GET","POST"])
+def record():
+    if not session.get('user_id'):
+        return redirect("/login")
+    if request.method == "POST":
+        distance = request.form.get('distance', type=float)
+        minutes = request.form.get('minutes', type=int)
+        hours = request.form.get('hours', type = int)
+        seconds = request.form.get('seconds', type= int)
+        notes = request.form.get('notes')
+        date = request.form.get('date')
+        db = helpers.getdb()
+        if not distance and minutes and hours and seconds:
+            return render_template("error.html", message="invalid paramenters")
+        elif hours == 0 and minutes == 0:
+            return render_template("error.html", message="Time cannot be less than 1 minute.")
+        else:
+            if hours == 0:
+                duration = minutes * 60 + seconds
+            elif minutes == 0 and hours!=0:
+                duration = hours * 60 * 60 + seconds
+            else:
+                duration = hours * 60 * 60 + minutes * 60 + seconds
+            cursor = db.execute("INSERT INTO runs(user_id, distance, duration, date, note) VALUES (?,?,?,?,?)", (session["user_id"], distance, duration, date, notes))
+            db.commit()
+            return redirect("/")
+    else:
+        return render_template("error.html", message="Some unforceen error occured.")
+
 @app.route("/register", methods=["GET","POST"])
 def register():
     if request.method == "POST":
@@ -20,7 +49,7 @@ def register():
         pswrd = request.form.get('password')
         confirmar = request.form.get('confirmation')
         db = helpers.getdb()
-        if pswrd == confirmar:
+        if pswrd == confirmar and name != " ":
             cur = db.execute("SELECT * FROM users WHERE user_name = ?", (name,))
             if cur.fetchone():
                 return render_template('error.html', message='Unique username needed.')
