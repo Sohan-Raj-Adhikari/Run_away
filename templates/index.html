@@ -15,6 +15,18 @@
 
 <!-- display previous runs, after scrolling, more runs load -->
 
+<table>
+    <thead>
+        <th>Distance</th>
+        <th>Pace</th>
+        <th>Date</th>
+        <th>Notes</th>
+    </thead>
+    <tbody id = 'output'>
+        <!-- This is the body for js generated stuff -->
+         
+    </tbody>
+</table>
 
 <script>
     function retrieve(){
@@ -26,7 +38,19 @@
             return response.json()
         })
         .then(data => {
-            console.log(data);
+            let x = document.querySelector('#output')
+            let out = ''
+            for(row of data){
+                pace = row.duration / row.distance / 60
+                const newpace = new Date(pace * 1000).toISOString().slice(14, 19);
+                out += `<tr>
+                <td>${row.distance} km</td>
+                <td>${newpace}</td>
+                <td>${row.date}</td>
+                <td>${row.note}</td>
+                </tr>`;
+            }
+            x.innerHTML = out;
         })
         .catch(error => {
             console.log(error);
