@@ -2,6 +2,7 @@ from flask import Flask, render_template, g, request, redirect, session
 from werkzeug.security import generate_password_hash, check_password_hash
 import sqlite3
 import helpers
+from datetime import datetime
 
 app = Flask(__name__)
 app.debug = True
@@ -29,6 +30,8 @@ def record():
             return render_template("error.html", message="invalid paramenters")
         elif hours == 0 and minutes == 0:
             return render_template("error.html", message="Time cannot be less than 1 minute.")
+        elif date > datetime.now().date:
+            return render_template("error.html", message="Date can't be in the future.")
         else:
             if hours == 0:
                 duration = minutes * 60 + seconds
