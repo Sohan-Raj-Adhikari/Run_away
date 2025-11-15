@@ -41,7 +41,7 @@
             let x = document.querySelector('#output')
             let out = ''
             for(row of data){
-                pace = row.duration / row.distance / 60
+                pace = row.duration / row.distance 
                 const newpace = new Date(pace * 1000).toISOString().slice(14, 19);
                 out += `<tr>
                 <td>${row.distance} km</td>
