@@ -16,5 +16,23 @@
 <!-- display previous runs, after scrolling, more runs load -->
 
 
+<script>
+    function retrieve(){
+        fetch("/retrieve")
+        .then(response => {
+            if (!response.ok){
+                throw new Error('response was error.')
+            }
+            return response.json()
+        })
+        .then(data => {
+            console.log(data);
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    }
 
+    retrieve();
+</script>
 {% endblock %}

@@ -1,4 +1,4 @@
-from flask import Flask, render_template, g, request, redirect, session
+from flask import Flask, render_template, g, request, redirect, session, jsonify
 from werkzeug.security import generate_password_hash, check_password_hash
 import sqlite3
 import helpers
@@ -13,6 +13,20 @@ def index():
     if not session.get('user_id'):
         return redirect("/login")
     return render_template("index.html")
+
+@app.route("/retrieve")
+def retrieve():
+    if not session.get('user_id'):
+        error = {"error":"not logged in"}
+        return jsonify(error)
+    db = helpers.getdb()
+    cursor = db.execute("SELECT distance, duration, date, note FROM runs WHERE user_id = ?", (session.get('user_id'), ))
+    rows = cursor.fetchall()
+    if not rows:
+        return jsonify({"error" : "database failure"})
+    column_names = [column[0] for column in cursor.description]
+    newrows = [dict(zip(column_names, row)) for row in rows]
+    return jsonify(newrows)
 
 @app.route("/record", methods=["GET","POST"])
 def record():
