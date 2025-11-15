@@ -11,7 +11,7 @@ app.secret_key = 'Haaland'
 @app.route("/", methods=["GET","POST"])
 def index():
     if not session.get('user_id'):
-        return redirect("/login")
+        return render_template("intro.html")
     return render_template("index.html")
 
 @app.route("/record", methods=["GET","POST"])
