@@ -44,7 +44,7 @@ def record():
             return render_template("error.html", message="invalid paramenters")
         elif hours == 0 and minutes == 0:
             return render_template("error.html", message="Time cannot be less than 1 minute.")
-        elif date > datetime.now().date:
+        elif date > str(datetime.now().date):
             return render_template("error.html", message="Date can't be in the future.")
         else:
             if hours == 0:
