@@ -8,8 +8,47 @@ Home
     display: grid;
     place-content: center;
     text-align: center;
+    color: #212529;
 }
 
+.form-1{
+    text-align: justify;
+}
+
+.inner-main-body{
+    box-shadow: 0 0 10px grey;
+    border-radius: 20px;
+    padding: 30px;
+    margin-top: 2vh;
+    background-color: #F8F9FA;
+}
+
+.upper-div{
+    padding: 20px;
+}
+
+.submit{
+    background-color: #007BFF;
+    color: white;
+    border-style: none;
+    padding: 5px 10px 5px 10px;
+    font-size: 20px;
+    font-weight: 800;
+    border-radius: 15px;
+}
+
+.submit:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+thead{
+    position: sticky;
+    top: 0; 
+    color: white; 
+    padding: 10px;
+    background-color: #007BFF;
+}
 {% endblock %}
 
 {% block content %}
@@ -26,7 +65,7 @@ Home
                 <input type="number" name="seconds" value=0 min="0" max="60" required> seconds    <br><br>
                 Date: <input type="date" name="date" id="date" required> <br><br>
                 <input type="text" name="notes" id="notes" placeholder="Notes(optional)" autocomplete="off"><br><br>
-                <input type="submit" value="Log Your Run">
+                <input type="submit" value="Log Your Run" class="submit">
             </form>
         </div>
         
@@ -37,7 +76,7 @@ Home
             <h3>RECENT RUNS</h3>
             <div style="overflow-y: auto; height: 130px; width: 500px;">
                 <table style="width: 100%;">
-                    <thead style="position: sticky; top: 0; color: white; background-color: grey; padding: 10px;">
+                    <thead style="">
                         <th>Distance</th>
                         <th>Pace</th>
                         <th>Date</th>

@@ -10,15 +10,10 @@ app.secret_key = 'Haaland'
 
 @app.route("/", methods=["GET","POST"])
 def index():
-    curr_theme = session.get('theme', 'light')
     if not session.get('user_id'):
-        return render_template("intro.html", theme=curr_theme)
-    return render_template("index.html", theme=curr_theme)
+        return render_template("intro.html")
+    return render_template("index.html")
 
-@app.route("/theme")
-def theme():
-    session['theme'] = 'dark' if session.get('theme') == 'light' else 'dark'
-    return redirect('/')
 
 @app.route("/retrieve")
 def retrieve():
@@ -81,7 +76,7 @@ def register():
             return redirect("/login")
         else:
             return render_template('error.html', message="Passwords need to be same")
-    return render_template('register.html', theme=session.get('theme', 'light'))
+    return render_template('register.html')
 
 @app.route("/login", methods=["GET","POST"])
 def login():
@@ -97,7 +92,7 @@ def login():
             return redirect("/")   
         else:
             return render_template('error.html', message="Password and username don't match.")
-    return render_template('login.html', theme=session.get('theme', 'light'))
+    return render_template('login.html')
 
 @app.route("/logout")
 def logout():
