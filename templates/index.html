@@ -2,35 +2,55 @@
 {% block title %}
 Home
 {% endblock %}
-{% block content %}
-<!-- log your run -->
- <h1>LOG YOUR RUN</h1>
-<form action="/record" method="post">
-    Distance: <input type="number" step="any" name="distance" id="distance" required>km <br><br>
-    <label for="duration">   Time: </label><input type="number" name="hours" value=0 min="0" max="100"> hours 
-    <input type="number" name="minutes" value=0 min="0" max="60" required> minutes   
-    <input type="number" name="seconds" value=0 min="0" max="60" required> seconds    <br><br>
-    Date: <input type="date" name="date" id="date" required> <br><br>
-    <input type="text" name="notes" id="notes" placeholder="Notes(optional)" autocomplete="off"><br><br>
-    <input type="submit" value="Log Your Run">
-</form>
-<br><br><br>
 
-<!-- display previous runs, after scrolling, more runs load -->
-<h3>RECENT RUNS</h3>
-<div style="overflow-y: auto; height: 130px; width: 500px;">
-    <table style="width: 100%;">
-        <thead style="position: sticky; top: 2px; color: white; background-color: grey;">
-            <th>Distance</th>
-            <th>Pace</th>
-            <th>Date</th>
-            <th>Notes</th>
-        </thead>
-        <tbody id = 'output'>
-            <!-- This is the body for js generated stuff -->
-    
-        </tbody>
-    </table>
+{% block styles %}
+.main-body-div{
+    display: grid;
+    place-content: center;
+    text-align: center;
+}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="main-body-div">
+    <div class="inner-main-body">
+        <!-- log your run -->
+        <div class="upper-div">
+            <h1>LOG YOUR RUN</h1>
+            <form action="/record" method="post" class="form-1">
+                Distance: <input type="number" step="any" name="distance" id="distance" required> km <br><br>
+                <label for="duration">   Time: </label><input type="number" name="hours" value=0 min="0" max="100"> hours 
+                <input type="number" name="minutes" value=0 min="0" max="60" required> minutes   
+                <input type="number" name="seconds" value=0 min="0" max="60" required> seconds    <br><br>
+                Date: <input type="date" name="date" id="date" required> <br><br>
+                <input type="text" name="notes" id="notes" placeholder="Notes(optional)" autocomplete="off"><br><br>
+                <input type="submit" value="Log Your Run">
+            </form>
+        </div>
+        
+        <hr>
+
+        <!-- display previous runs, after scrolling, more runs load -->
+        <div>
+            <h3>RECENT RUNS</h3>
+            <div style="overflow-y: auto; height: 130px; width: 500px;">
+                <table style="width: 100%;">
+                    <thead style="position: sticky; top: 0; color: white; background-color: grey; padding: 10px;">
+                        <th>Distance</th>
+                        <th>Pace</th>
+                        <th>Date</th>
+                        <th>Notes</th>
+                    </thead>
+                    <tbody id = 'output'>
+                        <!-- This is the body for js generated stuff -->
+                
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script>
@@ -64,8 +84,4 @@ Home
 
     retrieve();
 </script>
-
-
-<br><br><br><br><br>
-<a href="/logout">Log Out</a>
 {% endblock %}

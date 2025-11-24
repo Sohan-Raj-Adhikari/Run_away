@@ -26,7 +26,7 @@ def retrieve():
         error = {"error":"not logged in"}
         return jsonify(error)
     db = helpers.getdb()
-    cursor = db.execute("SELECT distance, duration, date, note FROM runs WHERE user_id = ?", (session.get('user_id'), ))
+    cursor = db.execute("SELECT distance, duration, date, note FROM runs WHERE user_id = ? ORDER BY date DESC", (session.get('user_id'), ))
     rows = cursor.fetchall()
     if not rows:
         return jsonify({"error" : "database failure"})
