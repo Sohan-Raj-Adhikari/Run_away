@@ -1,0 +1,119 @@
+:root{
+    --base-color: rgb(250, 248, 248);
+    --base-variant: #f1f1f1;
+    --text-color: #212529;
+    --accent-color: #ff6f61;
+    --shadow-color: grey;
+}
+
+.dark-mode{
+    --base-color: #1E2127;
+    --base-variant: #282C34;
+    --text-color: #F5E8D8;
+    --accent-color: #FF6F61;
+    --shadow-color: grey;
+}
+
+body{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--base-color);
+    color: var(--text-color);
+}
+
+.main-nav{
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--accent-color);
+    align-items: center;
+    padding: 1vh;
+    font-weight: 600;
+}
+
+a{
+    text-decoration: none;
+}
+
+.nav-brand{
+    font-size: 8vh;
+    color: white;
+}
+
+.main-nav div a {
+    color: white;
+}
+
+.main-body-div{
+    display: grid;
+    place-content: center;
+    text-align: center;
+    color: var(--text-color);
+}
+
+.form-1{
+    text-align: justify;    
+}
+
+.inner-main-body{
+    border-radius: 20px;
+    padding: 30px;
+    margin-top: 2vh;
+    background-color: var(--base-variant);
+}
+
+.upper-div{
+    padding: 20px;
+}
+
+.submit{
+    background-color: var(--accent-color);
+    color: white;
+    border-style: none;
+    padding: 5px 10px 5px 10px;
+    font-size: 20px;
+    font-weight: 800;
+    border-radius: 15px;
+}
+
+.submit:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+thead{
+    position: sticky;
+    top: 0; 
+    color: white; 
+    padding: 10px;
+    background-color: var(--accent-color);
+}
+
+#switch-mode{
+    height: 50px;
+    width: 50px;
+    padding: 0;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 12vh;
+    right: .5vh;
+    background-color: var(--base-variant);
+}
+
+#switch-mode svg{
+    fill: var(--text-color);
+}
+
+#switch-mode svg:last-child{
+    display: none;
+}
+
+.dark-mode #switch-mode svg:first-child{
+    display: none;
+}
+
+.dark-mode #switch-mode svg:last-child{
+    display: block;
+}
