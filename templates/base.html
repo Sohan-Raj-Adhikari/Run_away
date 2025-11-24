@@ -4,34 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <style>
-        body{
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        .main-nav{
-            display: flex;
-            justify-content: space-between;
-            background-color: #007BFF;
-            align-items: center;
-            padding: 1vh;
-            font-weight: 600;
-        }
-
-        a{
-            text-decoration: none;
-        }
-
-        .nav-brand{
-            font-size: 8vh;
-            color: white;
-        }
-
-        .main-nav div a {
-            color: white;
-        }
+        
         {% block styles %}{% endblock %}
     </style>
 </head>
@@ -40,7 +15,6 @@
         <a href="/" class="nav-brand">RUN_AWAY</a>
         <div>
             <a href="/logout">Logout</a>
-            <button id="dark-mode-toggle">Toggle Dark Mode</button> 
         </div>
     </nav>
     {% block content %} {% endblock %}
