@@ -5,9 +5,19 @@ Run Away - Login
 
 {% block content %}
    <form action="/login" method="post">
-        <input type="text" name="name" id="name" placeholder="Name"><br><br>
-        <input type="password" name="password" placeholder="Password"><br><br>
-        <input type="submit" value="Login"><br><br>
-        <a href="/register">Register</a>
+        
    </form>
+
+
+<div class="main-body-div">
+   <div class="inner-main-body intro-main">
+      <h2>LOG IN</h2>
+      <form action="/login" method="post">
+         <input type="text" name="name" id="name" placeholder="Name" autocomplete="off" autofocus><br><br>
+        <input type="password" name="password" placeholder="Password"><br><br>
+        <input type="submit" value="Login" class="submit-2"><br><br>
+        <a href="/register" class="register-now">Register</a>
+      </form>
+   </div>
+</div>
 {% endblock %}

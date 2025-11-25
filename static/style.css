@@ -58,7 +58,7 @@ a{
 .inner-main-body{
     border-radius: 20px;
     padding: 30px;
-    margin-top: 2vh;
+    margin-top: 1.5vh;
     background-color: var(--base-variant);
 }
 
@@ -135,6 +135,9 @@ input:focus {
 
 }
 
+input{
+    font-size: larger;
+}
 
 ::-webkit-scrollbar {
     width: 10px; 
@@ -164,6 +167,11 @@ input:focus {
 }
 
 .register-now{
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+.register-now:hover{
     color: var(--accent-color);
 }
 
