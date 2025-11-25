@@ -4,10 +4,14 @@ Run Away
 {% endblock %}
 {% block content %}
 
-<h1>WELCOME TO RUN AWAY</h1>
-<h3>A project designed to help you keep track of your runs.</h3>
-
-<button><a href="/login">Log In</a></button><br>
-Not registered Yet?  <a href="/register">Register Now!</a>
+<div class="main-body-div">
+    <div class="inner-main-body intro-main" style="min-height: 70vh;">
+        <h1>WELCOME TO RUN AWAY</h1>
+        <h3>A project designed to help you keep track of your runs.</h3>
+        <br><br><br><br><br>
+        <div><a href="/login" class="submit login">Log In</a></div><br><br>
+        Not registered Yet?  <a href="/register" class="register-now">Register Now!</a>
+    </div>
+</div>
 
 {% endblock %}

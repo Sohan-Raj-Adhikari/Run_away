@@ -3,10 +3,17 @@
 Run Away - Register
 {% endblock %}
 {% block content %}
-   <form action="/register" method="post">
-        <input type="text" name="name" id="name" placeholder="Name" autocomplete="off" required><br><br>
-        <input type="password" name="password" placeholder="Password" required><br><br>
-        <input type="password" name="confirmation" placeholder="Confirm Password" required>
-        <input type="submit" value="Register">
-   </form>
+
+<div class="main-body-div">
+    <div class="inner-main-body intro-main">
+      <h2>REGISTER</h2>
+        <form action="/register" method="post">
+         <input type="text" name="name" id="name" placeholder="Name" autocomplete="off" required><br><br>
+         <input type="password" name="password" placeholder="Password" required><br><br>
+         <input type="password" name="confirmation" placeholder="Confirm Password" required><br><br>
+         <input type="submit" value="Register" class="submit-2">
+      </form>
+    </div>
+</div>
+   
 {% endblock %}

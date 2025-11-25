@@ -32,6 +32,7 @@ body{
 
 a{
     text-decoration: none;
+    color: var(--text-color);
 }
 
 .nav-brand{
@@ -100,6 +101,7 @@ thead{
     top: 12vh;
     right: .5vh;
     background-color: var(--base-variant);
+    cursor: pointer;
 }
 
 #switch-mode svg{
@@ -116,4 +118,68 @@ thead{
 
 .dark-mode #switch-mode svg:last-child{
     display: block;
+}
+
+input{
+    background-color: var(--base-variant); /* Slight off-white/light gray */
+
+    border-radius: 5px;
+    padding: 3px;
+    color: var(--text-color);
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    
+
+}
+
+
+::-webkit-scrollbar {
+    width: 10px; 
+    height: 10px; 
+}
+
+
+::-webkit-scrollbar-track {
+    background: var(--base-color); 
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #555; 
+    border-radius: 10px;
+    border: 2px solid var(--base-color); 
+
+}
+
+.intro-main{
+    display: grid;
+    place-content: center;
+}
+
+.login{
+    max-width: 100px;;
+}
+
+.register-now{
+    color: var(--accent-color);
+}
+
+
+.submit-2{
+    color: var(--text-color);
+    padding: 5px 10px 5px 10px;
+    font-size: 20px;
+    font-weight: 800;
+    border-radius: 15px;
+}
+
+.submit-2:hover{
+    background-color: var(--accent-color);
+    transform: scale(1.1);
+    cursor: pointer;
+    transition: 0.1s;
+    color: #F5E8D8;
 }
