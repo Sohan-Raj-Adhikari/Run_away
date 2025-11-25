@@ -182,4 +182,5 @@ input:focus {
     cursor: pointer;
     transition: 0.1s;
     color: #F5E8D8;
+    border-color: white;
 }
