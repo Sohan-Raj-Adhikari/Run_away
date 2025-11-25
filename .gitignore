@@ -1,4 +1,57 @@
+# ------------------------------------
+# 1. Python specific files/directories
+# ------------------------------------
+# Byte-compiled / optimized / DLL files
 __pycache__/
-*.pyc
-.env
+*.py[cod]
+*$py.class
+
+# Created by setuptools
+*.egg
+*.egg-info
+dist/
+build/
+eggs/
+*.whl
+
+# Virtual environment (crucial!)
+.venv
+venv/
+env/
+
+# MyPy
+.mypy_cache/
+
+# Pytest / Coverage
+.pytest_cache/
+.coverage
+
+# ------------------------------------
+# 2. Operating System/IDE specific files
+# ------------------------------------
+.DS_Store             # macOS system files
+.vscode/              # VS Code workspace settings (optional, include if project-specific)
+.idea/                # IntelliJ/PyCharm files (crucial)
+Thumbs.db             # Windows image file caches
+*~                    # Backup files
+
+# ------------------------------------
+# 3. Flask/Web Specific Files
+# ------------------------------------
+# Flask session files (if using filesystem-based sessions)
+flask_session/
+
+# Flask-SQLAlchemy migration directory (if you use Alembic)
+migrations/
+
+# Logs and databases
+*.log
 *.sqlite3
+
+# ------------------------------------
+# 4. Sensitive/Secret Data (CRITICAL!)
+# ------------------------------------
+# Secret environment variables file (e.g., database URLs, secret keys)
+.env
+instance/
+config.py  # ONLY if it contains secret keys/passwords
